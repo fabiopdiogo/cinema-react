@@ -1,0 +1,37 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  background-color: #ED8620;  
+  justify-content: space-around;
+  color: white;
+}
+.div1{
+  display:flex;
+  background-color: aqua;
+}
+.options{
+  display: flex;
+  flex-direction: row;
+  gap:25px;
+}
+
+.searchBar{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+ }
+
+.searchBar input{  
+    padding: 8px;
+    border: none;
+    border-radius: 4px 0 0 4px;    
+    background-color: transparent;
+    width: 150px;
+    height: 20px;
+}
+
+.searchBar img{  
+  width: 20px;
+  height: 20px;
+  padding: 0;
+}
