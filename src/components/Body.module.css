@@ -10,7 +10,7 @@
   width: 140px
 }
 
-.cinema button{
+.cinemaButton{
   cursor: pointer;
   border: 2px solid #ed8620;
   padding: 14px;
@@ -26,4 +26,10 @@
   width: auto;
   padding-left: 26px;
   padding-right: 26px;
+}
+
+.days{
+  display: flex;
+  justify-content: space-between;
+  gap: 30px
 }

@@ -1,16 +1,17 @@
 import React from 'react';
 
-import styles  from "./Body.module.css"
+import styles  from "./Date.module.css"
+import { ITask } from "../interfaces/Task"
 
-const Body = () => {
+interface Props {
+  dia: string;
+ }
+
+
+const Body = ({dia} : Props) => {
   return (
-      <div className={styles.cinema}>
-        <h1>Cinema</h1>
-        <p>Bora de cineminha hoje? No Shopping Cidade você, reúne amigos, família e quem você quiser e encontra tudo para a diversão ser completa.
-           Escolha o dia para ver a programação:
-        </p>
-        <img src="icone-cinema.svg" alt="" />
-        <button>VALORES</button>
+      <div className={styles.dateButton}>
+        <button>{dia}</button>
       </div>
   );
 };
