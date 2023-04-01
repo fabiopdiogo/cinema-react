@@ -10,8 +10,8 @@ interface Props {
 
 const Body = ({dia} : Props) => {
   return (
-      <div className={styles.dateButton}>
-        <button>{dia}</button>
+      <div >
+        <button className={styles.dateButton}>{dia}</button>
       </div>
   );
 };

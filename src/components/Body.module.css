@@ -31,5 +31,6 @@
 .days{
   display: flex;
   justify-content: space-between;
-  gap: 30px
+  gap: 30px;
+  margin-top: 20px;
 }

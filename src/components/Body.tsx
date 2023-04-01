@@ -2,6 +2,7 @@ import React from 'react';
 
 import styles  from "./Body.module.css"
 import Date from "./Date"
+
 const Body = () => {
   return (
     <div className={styles.cinema}>
@@ -11,12 +12,13 @@ const Body = () => {
         <img src="icone-cinema.svg" alt="" />            
         <button className={styles.cinemaButton}>VALORES</button>
         <div className={styles.days}>
-          <Date dia="Segunda"/>
-          <Date dia="Terça"/>
-          <Date dia="Quarta"/>
-          <Date dia="Quinta"/>
-          <Date dia="Sexta"/>
-          <Date dia="Sabado"/>
+          <Date dia="SEG"/>
+          <Date dia="TER"/>
+          <Date dia="QUA"/>
+          <Date dia="QUI"/>
+          <Date dia="SEX"/>
+          <Date dia="SAB"/>
+          <Date dia="DOM"/>
         </div>
 
     </div>
