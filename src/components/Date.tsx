@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import styles  from "./Date.module.css"
-import { ITask } from "../interfaces/Task"
+import { IFilm }   from "../interfaces/Films"
 
 interface Props {
   dia: string;
  }
 
-
+const Segunda : IFilm[] = []
 const Body = ({dia} : Props) => {
+
+
+
   return (
       <div >
         <button className={styles.dateButton}>{dia}</button>
