@@ -1,9 +1,17 @@
-import React from 'react';
+import React ,{useState} from 'react'; 
 
 import styles  from "./Body.module.css"
 import Date from "./Date"
 
-const Body = () => {
+
+
+const Body = () => { 
+  const [show, setShow] = useState(false);
+  const handleClick = () =>{
+    setShow(!show)
+  }
+
+
   return (
     <div className={styles.cinema}>
         <h1>Cinema</h1>
@@ -12,14 +20,24 @@ const Body = () => {
         <img src="icone-cinema.svg" alt="" />            
         <button className={styles.cinemaButton}>VALORES</button>
         <div className={styles.days}>
-          <Date dia="SEG"/>
-          <Date dia="TER"/>
-          <Date dia="QUA"/>
-          <Date dia="QUI"/>
-          <Date dia="SEX"/>
-          <Date dia="SAB"/>
-          <Date dia="DOM"/>
+          <Date dia="SEG" handleClick={handleClick}/>
+          <Date dia="TER" handleClick={handleClick}/>
+          <Date dia="QUA" handleClick={handleClick}/>
+          <Date dia="QUI" handleClick={handleClick}/>
+          <Date dia="SEX" handleClick={handleClick}/>
+          <Date dia="SAB" handleClick={handleClick}/>
+          <Date dia="DOM" handleClick={handleClick}/>
         </div>
+
+        <>
+          {show === true ? (
+            <p>Mostrando</p>
+          ) : (
+            <p>Não mostrando</p>
+          )
+            
+          }        
+        </>
 
     </div>
 
