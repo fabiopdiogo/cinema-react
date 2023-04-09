@@ -1,4 +1,4 @@
-export interface IFilm{
+export interface IFilms{
   name: string;
   genre: string;
   age: string;

@@ -1,11 +1,16 @@
 import React ,{useState} from 'react'; 
+import { IFilms } from "../interfaces/Films"
 
 import styles  from "./Body.module.css"
 import Date from "./Date"
 
 
 
-const Body = () => { 
+interface Props {
+ seg: IFilms[];
+}
+
+const Body = ({seg} : Props) => { 
   const [show, setShow] = useState(false);
   const handleClick = () =>{
     setShow(!show)

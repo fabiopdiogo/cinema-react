@@ -1,14 +1,14 @@
 import React, {MouseEventHandler, useState} from 'react';
 
 import styles  from "./Date.module.css"
-import { IFilm }   from "../interfaces/Films"
+import { IFilms }   from "../interfaces/Films"
 
 interface Props {
   dia: string;
   handleClick: MouseEventHandler<HTMLButtonElement>;
  }
 
-const Segunda : IFilm[] = []
+const Segunda : IFilms[] = []
 
 const Body = ({dia, handleClick} : Props) => {
 
