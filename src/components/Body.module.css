@@ -34,3 +34,29 @@
   gap: 30px;
   margin-top: 20px;
 }
+
+.filme{
+  display:flex;
+  background-color: #efefef;
+  width: 500px;
+  height: 200px;
+  padding: 15px;
+  border-radius: 5px;
+  gap: 10px;
+}
+
+.filme img{
+  width: 253px;
+  height: 216px;
+}
+
+.filmeInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+}
+
+.filmeInfo2{
+  display: flex;
+  gap: 15px;
+}

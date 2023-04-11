@@ -2,7 +2,8 @@ export interface IFilms{
   name: string;
   genre: string;
   age: string;
-  size: string;
-  time: string [];
+  duration: string;
+  image: string;
+  schedules: string [];
   synopsis: string;
 }

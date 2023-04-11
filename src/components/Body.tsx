@@ -7,10 +7,10 @@ import Date from "./Date"
 
 
 interface Props {
- seg: IFilms[];
+ Seg: IFilms[];
 }
 
-const Body = ({seg} : Props) => { 
+const Body = ({Seg} : Props) => { 
   const [show, setShow] = useState(false);
   const handleClick = () =>{
     setShow(!show)
@@ -36,7 +36,27 @@ const Body = ({seg} : Props) => {
 
         <>
           {show === true ? (
-            <p>Mostrando</p>
+            <div>
+              {Seg.map((film) =>(
+                <div className={styles.filme}>                  
+                  <img src={film.image} />
+
+                  <div className={styles.filmeInfo}>
+                    <h2>{film.name}</h2>
+                    <div className={styles.filmeInfo2}>                    
+                      <p>{film.genre}</p>
+                      <p>|</p>
+                      <p>{film.age}</p>
+                      <p>|</p>
+                      <p>{film.duration}</p>
+                    </div>
+                    <p>{film.schedules}</p>
+
+                  </div>
+                  
+                </div>
+              ))}
+            </div>
           ) : (
             <p>Não mostrando</p>
           )
