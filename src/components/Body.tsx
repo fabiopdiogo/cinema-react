@@ -12,7 +12,8 @@ interface Props {
 
 const Body = ({Seg} : Props) => { 
   const [show, setShow] = useState(false);
-  const handleClick = () =>{
+  
+  const handleClick = (dia) =>{
     setShow(!show)
   }
 
@@ -36,11 +37,10 @@ const Body = ({Seg} : Props) => {
 
         <>
           {show === true ? (
-            <div>
+            <div className={styles.filmeContainer}>
               {Seg.map((film) =>(
                 <div className={styles.filme}>                  
                   <img src={film.image} />
-
                   <div className={styles.filmeInfo}>
                     <h2>{film.name}</h2>
                     <div className={styles.filmeInfo2}>                    
@@ -50,7 +50,12 @@ const Body = ({Seg} : Props) => {
                       <p>|</p>
                       <p>{film.duration}</p>
                     </div>
-                    <p>{film.schedules}</p>
+                    <div>{
+                      film.schedules.map((section) => (
+                        <p>{section}</p>
+                      ))
+                    }
+                    </div>
 
                   </div>
                   

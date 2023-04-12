@@ -5,17 +5,16 @@ import { IFilms }   from "../interfaces/Films"
 
 interface Props {
   dia: string;
-  handleClick: MouseEventHandler<HTMLButtonElement>;
+  handleClick(dia: string): void;
  }
 
 const Segunda : IFilms[] = []
 
 const Body = ({dia, handleClick} : Props) => {
 
-
   return (
       <div >
-        <button className={styles.dateButton} onClick={handleClick}>{dia}</button>
+        <button className={styles.dateButton} onClick={() => handleClick(dia)}>{dia}</button>
       </div>
   );
 };
