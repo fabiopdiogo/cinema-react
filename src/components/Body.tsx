@@ -7,13 +7,13 @@ import Date from "./Date"
 
 
 interface Props {
- Seg: IFilms[];
+ Qua: IFilms[];
 }
 
-const Body = ({Seg} : Props) => { 
+const Body = ({Qua} : Props) => { 
   const [show, setShow] = useState(false);
-  
-  const handleClick = (dia) =>{
+
+  const handleClick = () =>{
     setShow(!show)
   }
 
@@ -38,7 +38,7 @@ const Body = ({Seg} : Props) => {
         <>
           {show === true ? (
             <div className={styles.filmeContainer}>
-              {Seg.map((film) =>(
+              {Qua.map((film) =>(
                 <div className={styles.filme}>                  
                   <img src={film.image} />
                   <div className={styles.filmeInfo}>
@@ -63,7 +63,31 @@ const Body = ({Seg} : Props) => {
               ))}
             </div>
           ) : (
-            <p>Não mostrando</p>
+            <div className={styles.filmeContainer}>
+              {Qua.map((film) =>(
+                <div className={styles.filme}>                  
+                  <img src={film.image} />
+                  <div className={styles.filmeInfo}>
+                    <h2>{film.name}</h2>
+                    <div className={styles.filmeInfo2}>                    
+                      <p>{film.genre}</p>
+                      <p>|</p>
+                      <p>{film.age}</p>
+                      <p>|</p>
+                      <p>{film.duration}</p>
+                    </div>
+                    <div>{
+                      film.schedules.map((section) => (
+                        <p>{section}</p>
+                      ))
+                    }
+                    </div>
+
+                  </div>
+                  
+                </div>
+              ))}
+            </div>
           )
             
           }        

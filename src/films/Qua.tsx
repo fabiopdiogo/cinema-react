@@ -1,6 +1,6 @@
 import { IFilms } from "../interfaces/Films"
 
-const Seg : IFilms[] = [
+const Qua : IFilms[] = [
   {
    name : "Super Mario Bros - O Filme",
    genre : "Animação",
@@ -83,4 +83,4 @@ const Seg : IFilms[] = [
 ]
 
 
-export default Seg;
+export default Qua;

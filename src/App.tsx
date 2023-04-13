@@ -5,13 +5,13 @@ import Body from './components/Body'
 import styles from './App.module.css'
 
 import { IFilms } from "../src/interfaces/Films"
-import Seg from './films/Seg';
+import Qua from './films/Qua';
 
 function App() {  
   return (
     <div className={styles.main}>
       <Header />
-      <Body Seg={Seg}/>
+      <Body Qua={Qua}/>
     </div>
   );
 }

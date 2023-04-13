@@ -8,7 +8,6 @@ interface Props {
   handleClick(dia: string): void;
  }
 
-const Segunda : IFilms[] = []
 
 const Body = ({dia, handleClick} : Props) => {
 
