@@ -5,17 +5,19 @@ import { IFilms }   from "../interfaces/Films"
 
 interface Props {
   dia: string;
-  handleClick(dia: string): void;
- }
+  handleClick (show: string): void;
+  show : string;
+}
 
 
-const Body = ({dia, handleClick} : Props) => {
+const Body = ({dia,handleClick,show} : Props) => {
 
   return (
-      <div >
-        <button className={styles.dateButton} onClick={() => handleClick(dia)}>{dia}</button>
+      <div>
+        <button className={styles.dateButton} onClick= { () => handleClick(show)}>{dia}</button>
       </div>
   );
+
 };
 
 export default Body;
