@@ -16,6 +16,7 @@ const Qua : IFilms[] = [
     "16:30 - Dub - Sala 04"
   ],
    synopsis :"Adaptação do jogo homônimo. Acompanhe o encanador Mario e seu irmão Luigi tentando salvar uma princesa capturada. Para alcançar o objetivo e libertá-la, os dois precisarão embarcar em uma viagem por um labirinto subterrâneo."
+   
   },
   {
     name : "O Exorcista do Papa",
