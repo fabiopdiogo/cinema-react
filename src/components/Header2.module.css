@@ -1,0 +1,22 @@
+.container{
+ display: flex;
+ background-color: #161822;
+ color: white;
+ padding: 5px;
+ justify-content: space-between;
+
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  gap: 15px;
+}
+
+.option1 , .option2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}

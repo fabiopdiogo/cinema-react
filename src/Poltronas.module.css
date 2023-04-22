@@ -1,5 +1,9 @@
 .sala{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: #2A2C3F;
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin:0;
 }
