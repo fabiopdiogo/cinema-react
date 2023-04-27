@@ -1,6 +1,6 @@
 import React ,{useState} from 'react'; 
 import { IFilms } from "../interfaces/Films"
-
+import { Link } from 'react-router-dom';
 
 import styles  from "./Body.module.css"
 import Date from "./Date"
@@ -60,7 +60,7 @@ const Body = ({Schedule1,Schedule2} : Props) => {
                     </div>
                     <div>{
                       film.schedules.map((section) => (
-                        <a>{section}</a>
+                        <Link to="/Poltronas">{section}</Link>
                       ))
                     }
                     </div>
