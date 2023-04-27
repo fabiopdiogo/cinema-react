@@ -18,24 +18,28 @@ export function Poltronas(){
               <p>Selecione seu(s) lugar(es) clicando na poltrona de acordo a legenda.</p>
               <p>Para desmarcar seu(s) lugar(es) clique novamente sobre a poltrona(s) reservada(s).</p>            
                 <div className={styles.sala}>
-                  <div className={styles.ladoA}>
-                  {
-                    gameState.map(() =>
-                    <div>
-                        <PoltronaOption></PoltronaOption>
-                    </div>                  
-                    )
-                  }
+                  <div className={styles.assentos}>
+                      <div className={styles.ladoA}>
+                      {
+                        gameState.map(() =>
+                        <div>
+                            <PoltronaOption></PoltronaOption>
+                        </div>                  
+                        )
+                      }
+                      </div>
+                      <div className={styles.ladoB}> 
+                      {
+                        gameState.map(() =>
+                        <div>
+                            <PoltronaOption></PoltronaOption>
+                        </div>                  
+                        )
+                      }
+                      </div> 
                   </div>
-                  <div className={styles.ladoB}> 
-                  {
-                    gameState.map(() =>
-                    <div>
-                        <PoltronaOption></PoltronaOption>
-                    </div>                  
-                    )
-                  }
-                  </div> 
+                  
+                  <span>Tela</span>
                 </div>                           
               </div>            
             </div>
