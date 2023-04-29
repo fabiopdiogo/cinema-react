@@ -1,10 +1,11 @@
 import React from 'react';
 
 import styles from "./PoltronaOption.module.css"
-const PoltronaOption = () => {
+const PoltronaOption = (value : string) => {
   return(
-    <div className={styles.poltrona}>
-    </div>
+    <button className={styles.poltrona}>
+     {value}
+    </button>
   )
 }
 
