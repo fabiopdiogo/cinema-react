@@ -52,15 +52,32 @@
   gap: 5px;
 }
 
-button{  
-    border: 2px solid black;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer
+
+
+.button {
+  border: 2px solid black;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: green;
+  color:white;
+}
+
+.button-alternate {
+  border: 2px solid black;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: red;
+  color: white;
 }
 
 
