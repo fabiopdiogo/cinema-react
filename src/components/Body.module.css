@@ -50,6 +50,7 @@
 
 .filme{
   display:flex;
+  justify-content: flex-start;
   background-color: #efefef;
   width: 500px;
   min-height: 200px;
@@ -73,3 +74,4 @@
   display: flex;
   gap: 15px;
 }
+

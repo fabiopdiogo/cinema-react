@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
+import { IFilms } from "../interfaces/Films"
 
 import styles from "../Poltronas.module.css"
 import Header2 from '../components/Header2';
 import PoltronaOption from '../components/PoltronaOption';
+
+import { useLocation } from 'react-router-dom';
+
+
+interface Props {
+  infos: IFilms[];
+}
 
 
 export function Poltronas(){
   const linhas = [1,2,3,4,5,6,7,8,9,10];
   const colunas = [1,2,3,4,5,6,7];
 
-
+  const location = useLocation();
+  const film = location.state;
+  console.log(film.age)
   return(
     <div className={styles.page}>
         <Header2 />
@@ -45,12 +55,26 @@ export function Poltronas(){
                   
                   <span>Tela</span>
                 </div>                           
-              </div>            
+              </div> 
+
+              <div className={styles.div2}>
+                <div className={styles.filmInfo}>
+                  <img src={film.image} />     
+                  <div className={styles.infos}>
+                    {
+                        <div>
+                          <h2>{film.name}</h2>
+                          <label>{film.age}</label>
+                          <p>Cineart - Cidade<br />Belo HorizonteS<br/>ão Paulo, 957, Loja GG --<br/>24/25 GGG 1/-Centro</p>
+                        </div>
+
+                    }
+                    
+                  </div>             
+                </div>                          
+              </div>                        
             </div>
-            <div className={styles.div2}>
-
-
-            </div>              
+            
         </body>
     </div>
   )

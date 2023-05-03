@@ -1,14 +1,18 @@
 import React ,{useState} from 'react'; 
 import { IFilms } from "../interfaces/Films"
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 
 import styles  from "./Body.module.css"
+
 import Date from "./Date"
 
 interface Props {
   Schedule1: IFilms[];
   Schedule2: IFilms[];
 }
+
 
 const Body = ({Schedule1,Schedule2} : Props) => { 
   const [show1, setShow1] = useState(true);
@@ -60,7 +64,7 @@ const Body = ({Schedule1,Schedule2} : Props) => {
                     </div>
                     <div>{
                       film.schedules.map((section) => (
-                        <Link to="/Poltronas">{section}</Link>
+                        <p><Link to="/Poltronas" state={film}>{section}</Link></p>
                       ))
                     }
                     </div>
@@ -85,7 +89,7 @@ const Body = ({Schedule1,Schedule2} : Props) => {
                     </div>
                     <div>{
                       film.schedules.map((section) => (
-                        <a>{section}</a>
+                        <p><Link to="/Poltronas">{section}</Link></p>
                       ))
                     }
                     </div>

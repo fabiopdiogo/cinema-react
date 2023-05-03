@@ -13,20 +13,54 @@
 .container{
   display: flex;
   background-color: red;
+  justify-content: space-around;
   width: 80%;
   height: 100vh;
-  gap: 30px;
+}
+
+.filmInfo{
+  display: flex;  
+  flex-direction: row;
+  padding: 15px 15px;
+  gap:10px
+}
+
+.filmInfo img{
+  height: 120px;
+  width: 140px;
+}
+  
+.infos{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: blue;
+}
+
+.infos label{
+  cursor: pointer;
+  border: 2px solid #ed8620; 
+  font-size: 13px;
+  line-height: 15px;
+  width:fit-content;
+  border-radius: 40px;
+  background:#ed8620;
+  color: #fff;
+  text-align: center;    
+  padding: 5px;
 }
 
 .div1{
   background-color: aqua;
-  width: 65%;
+  width: 55%;
 }
 
 .div2{
+  display: flex;
+  flex-direction: column;
   background-color: white;
   width:35%;
-  height: 60vh;
+  height: 70vh;
 }
 
 .sala{
@@ -51,8 +85,6 @@
   grid-template-columns:repeat(7, 1fr);
   gap: 5px;
 }
-
-
 
 .button {
   border: 2px solid black;
