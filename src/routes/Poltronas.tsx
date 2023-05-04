@@ -14,12 +14,30 @@ interface Props {
 
 
 export function Poltronas(){
+  const location = useLocation();
+  const state = location.state;
+  const film = state.film;
+  const section = state.section;
+
   const linhas = [1,2,3,4,5,6,7,8,9,10];
   const colunas = [1,2,3,4,5,6,7];
 
-  const location = useLocation();
-  const film = location.state;
-  console.log(film.age)
+  const numRows : number = 10
+  const numCols : number = 14
+
+
+  const seats: number[][] = new Array<number[]>(numRows);
+
+  for (let i = 0; i < numRows; i++) {
+    seats[i] = new Array<number>(numCols);
+  }
+
+  const setSeat = (row,col) =>{
+    
+  }
+
+
+
   return(
     <div className={styles.page}>
         <Header2 />
@@ -36,7 +54,7 @@ export function Poltronas(){
                         <div className={styles.ladoA}>
                           {/* Cria um array com números de 1 até numCols para representar as colunas */}
                           {colunas.map((col) => (
-                            <PoltronaOption >{col}</PoltronaOption>
+                            <PoltronaOption row={row}>{col}</PoltronaOption>
                           ))}
                         </div>
                       ))}
@@ -46,7 +64,7 @@ export function Poltronas(){
                           <div className={styles.ladoB}>
                             {/* Cria um array com números de 1 até numCols para representar as colunas */}
                             {colunas.map((col) => (
-                              <PoltronaOption >{col}</PoltronaOption>
+                              <PoltronaOption row={row}>{col+7}</PoltronaOption>
                             ))}
                           </div>
                         ))}
@@ -59,18 +77,19 @@ export function Poltronas(){
 
               <div className={styles.div2}>
                 <div className={styles.filmInfo}>
-                  <img src={film.image} />     
+                <img src={film.image} />     
                   <div className={styles.infos}>
                     {
                         <div>
                           <h2>{film.name}</h2>
                           <label>{film.age}</label>
-                          <p>Cineart - Cidade<br />Belo HorizonteS<br/>ão Paulo, 957, Loja GG --<br/>24/25 GGG 1/-Centro</p>
+                          <p>Cineart - Cidade<br />Belo Horizonte<br/>São Paulo, 957, Loja GG --<br/>24/25 GGG 1/-Centro</p>
+                          <p>_______________________</p>
+                          <p>{section}</p>
                         </div>
-
-                    }
-                    
-                  </div>             
+                        
+                    }                    
+                  </div>                  
                 </div>                          
               </div>                        
             </div>
@@ -79,4 +98,3 @@ export function Poltronas(){
     </div>
   )
 }
-
