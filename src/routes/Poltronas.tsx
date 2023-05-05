@@ -19,24 +19,28 @@ export function Poltronas(){
   const film = state.film;
   const section = state.section;
 
-  const linhas = [1,2,3,4,5,6,7,8,9,10];
-  const colunas = [1,2,3,4,5,6,7];
+  const linhas = [0,1,2,3,4,5,6,7,8,9];
+  const colunas = [0,1,2,3,4,5,6,7,8,9,10,11,12,13];
 
-  const numRows : number = 10
-  const numCols : number = 14
+  const numRows : number = 14
+  const numCols : number = 10
 
 
   const seats: number[][] = new Array<number[]>(numRows);
 
-  for (let i = 0; i < numRows; i++) {
-    seats[i] = new Array<number>(numCols);
+  for (let i = 0; i < numCols; i++) {
+    seats[i] = new Array<number>(numRows);
   }
 
-  const setSeat = (row,col) =>{
-    
+  const setSeat = (row: number,col : number, checked: boolean) =>{
+    if(checked){
+      seats[row][col] = 1;
+    }
+    else{
+      seats[row][col] = 0;
+    }
+    console.log(row,col)
   }
-
-
 
   return(
     <div className={styles.page}>
@@ -47,29 +51,18 @@ export function Poltronas(){
               <h1>Escola xx poltrona(s)</h1>
               <p>Selecione seu(s) lugar(es) clicando na poltrona de acordo a legenda.</p>
               <p>Para desmarcar seu(s) lugar(es) clique novamente sobre a poltrona(s) reservada(s).</p>            
-                <div className={styles.sala}>
-                  <div className={styles.assentos}>     
-                    <div>
+                <div className={styles.sala}>   
+                    <div className={styles.assentos}>
+                      <div className={styles.corredor}></div>
                       {linhas.map((row) => (
-                        <div className={styles.ladoA}>
+                        <div className={styles.row}>
                           {/* Cria um array com números de 1 até numCols para representar as colunas */}
                           {colunas.map((col) => (
-                            <PoltronaOption row={row}>{col}</PoltronaOption>
+                            <PoltronaOption row={row} col={col} setSeat={setSeat}>{col+1}</PoltronaOption>
                           ))}
                         </div>
                       ))}
-                    </div>             
-                    <div>
-                        {linhas.map((row) => (
-                          <div className={styles.ladoB}>
-                            {/* Cria um array com números de 1 até numCols para representar as colunas */}
-                            {colunas.map((col) => (
-                              <PoltronaOption row={row}>{col+7}</PoltronaOption>
-                            ))}
-                          </div>
-                        ))}
-                    </div>                   
-                  </div>
+                    </div>
                   
                   <span>Tela</span>
                 </div>                           

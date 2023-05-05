@@ -10,7 +10,9 @@ type ButtonProps = {
 
 interface Props{
   children: number;
+  col:number;
   row:number;
+  setSeat(row:number,col:number,checkedValue: boolean) : void;
 }
 
 
@@ -27,13 +29,16 @@ const StyledButton = styled.button<ButtonProps>`
     color:white;
 `
 
-const PoltronaOption = ({children,row}: Props) => {
+const PoltronaOption = ({children,setSeat,col,row}: Props) => {
   const [checkedValue, setCheckedValue] = useState(true);
   
   function handleClick () {
     setCheckedValue(!checkedValue);
     console.log(checkedValue)
+    setSeat(row,col,checkedValue);
   }
+
+
   return(
     <StyledButton checkedValue={checkedValue} onClick={handleClick}>{children}</StyledButton>
   )

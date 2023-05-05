@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #2A2C3F;
+  background-color: #333333;
   height: 100vh;
   width: 100%;
   padding: 0;
@@ -12,7 +12,6 @@
 
 .container{
   display: flex;
-  background-color: red;
   justify-content: space-around;
   width: 80%;
   height: 100vh;
@@ -26,7 +25,7 @@
 }
 
 .filmInfo img{
-  height: 220px;
+  height: fit-content;
   width: 140px;
 }
   
@@ -34,7 +33,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: blue;
 }
 
 .infos label{
@@ -51,16 +49,19 @@
 }
 
 .div1{
-  background-color: aqua;
-  width: 55%;
+  width: 55%;  
+  background-color: #3f4152;  
+  color: #fff;
+  padding: 20px;
 }
 
 .div2{
   display: flex;
   flex-direction: column;
-  background-color: white;
   width:35%;
-  height: 70vh;
+  height: 70vh;  
+  background-color: #3f4152;  
+  color: #fff;
 }
 
 .sala{
@@ -73,11 +74,27 @@
   padding: 30px 10px;
 }
 
+.sala span{
+  background-color: aqua;
+  align-items: center;
+  padding: 10px 200px;
+  color: black;
+}
+.corredor {
+  width: 20px;
+  height: 100%;
+  background-color: black;
+}
 .assentos{
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 30px;
+  column-count: 2;  
+  gap: 5px;
   padding: 30px 10px;
+}
+.row{
+  display: flex;
 }
 
 .ladoA, .ladoB{
