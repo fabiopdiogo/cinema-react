@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IFilms } from "../interfaces/Films"
 
-import styles from "../Poltronas.module.css"
+import styles from "../styles/Poltronas.module.css"
 import Header2 from '../components/Header2';
 import PoltronaOption from '../components/PoltronaOption';
 
@@ -53,7 +53,6 @@ export function Poltronas(){
               <p>Para desmarcar seu(s) lugar(es) clique novamente sobre a poltrona(s) reservada(s).</p>            
                 <div className={styles.sala}>   
                     <div className={styles.assentos}>
-                      <div className={styles.corredor}></div>
                       {linhas.map((row) => (
                         <div className={styles.row}>
                           {/* Cria um array com números de 1 até numCols para representar as colunas */}

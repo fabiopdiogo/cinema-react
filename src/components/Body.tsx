@@ -89,7 +89,7 @@ const Body = ({Schedule1,Schedule2} : Props) => {
                     </div>
                     <div>{
                       film.schedules.map((section) => (
-                        <p><Link to="/Poltronas">{section}</Link></p>
+                        <p><Link to="/Poltronas" state={{film: film, section: section}}>{section}</Link></p>
                       ))
                     }
                     </div>

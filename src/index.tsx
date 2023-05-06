@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './styles/index.css';
 import App from './App';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Poltronas } from "./routes/Poltronas";
+import { Tickets } from "./routes/Tickets"
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "poltronas",
     element: <Poltronas />
+  },
+  {
+    path: "tickets",
+    element: <Tickets />
   }
 ]);
 
