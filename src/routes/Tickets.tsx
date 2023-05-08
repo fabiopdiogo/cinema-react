@@ -14,13 +14,56 @@ export function Tickets(){
   const section = state.section;
   const [show1,setShow1] = useState(false)
 
+  const [selectedInteira, setSelectedInteira] = useState(0);
+  const [selectedMeia, setSelectedMeia] = useState(0);
 
+  let valorInteira : Number = 0;
+  let valorMeia  = 0;
+
+  const handleSelectInteira = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    if(event.target.value== "valor0"){
+      setSelectedInteira(0.00);
+      console.log(selectedInteira)
+    }
+    if(event.target.value== "valor1"){
+      setSelectedInteira(30.60*1);
+      console.log(selectedInteira)
+    }
+    else if(event.target.value== "valor2"){
+      setSelectedInteira(30.60*2);
+      console.log(selectedInteira)
+    }
+    else{
+      setSelectedInteira(30.60*3);
+      console.log(selectedInteira)
+    }
+    console.log(selectedInteira)
+  }
+  const handleSelectMeia = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    
+    if(event.target.value== "valor0"){
+      setSelectedMeia(0.00);
+      console.log(selectedMeia)
+    }
+    if(event.target.value== "valor1"){
+      setSelectedMeia(16.80*1);
+      console.log(selectedMeia)
+    }
+    else if(event.target.value== "valor2"){
+      setSelectedMeia(16.80*2);
+      console.log(selectedMeia)
+    }
+    else{
+      setSelectedMeia(16.80*3);
+      console.log(selectedMeia)
+    }
+  }
   function handleClick(id: string) : void{
     if(id == "1"){
       setShow1(!show1)
     }
   }
-  
+
   return(
     <div>
         <Header2 />
@@ -40,24 +83,26 @@ export function Tickets(){
                       <tr>
                           <td>Inteira</td>
                           <td>
-                            <select name="" id="">
+                            <select onChange={handleSelectInteira}>
+                              <option value="valor0">0</option>
                               <option value="valor1">1</option>
                               <option value="valor2">2</option>
                               <option value="valor3">3</option>
                             </select>
                           </td>
-                          <td>Valor</td>
+                          <td>{selectedInteira.toFixed(2).toString()}</td>
                       </tr>
                       <tr>
                           <td>Meia</td>
                           <td>
-                            <select name="" id="">
+                            <select onChange={handleSelectMeia}>
+                                <option value="valor1">0</option>
                                 <option value="valor1">1</option>
                                 <option value="valor2">2</option>
                                 <option value="valor3">3</option>
                             </select>
                           </td>
-                          <td>Valor</td>
+                          <td>{selectedMeia.toFixed(2).toString()}</td>
                       </tr>
                   </table>
                 )}
