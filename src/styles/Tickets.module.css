@@ -1,3 +1,75 @@
-.table{
-  
+.body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #333333;
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin:0;
 }
+
+.container{
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  height: 100vh;
+}
+
+.div1{
+  width: 55%;  
+  background-color: #3f4152;  
+  color: #fff;
+  padding: 20px;
+}
+
+.div2{
+  display: flex;
+  flex-direction: column;
+  width:35%;
+  height: 70vh;  
+  background-color: #3f4152;  
+  color: #fff;
+}
+
+.options{
+  display: flex;
+  flex-direction: column;
+  background-color: #29343e;
+  border-radius: 10px;
+  width: 600px;  
+  border: 2px solid white;
+}
+
+.options label{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.options table{
+  align-items: center;  
+}
+
+.options tr{
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+#toogle{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+#toogle:checked + table{
+  
+  width: 600px;
+  border-radius: 5px;
+  padding: 0 20px;
+  align-items: center;  
+}
+

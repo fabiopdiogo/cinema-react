@@ -16,9 +16,9 @@ interface Props {
 export function Poltronas(){
   const location = useLocation();
   const state = location.state;
+  console.log(state.film);
   const film = state.film;
   const section = state.section;
-
   const linhas = [0,1,2,3,4,5,6,7,8,9];
   const colunas = [0,1,2,3,4,5,6,7,8,9,10,11,12,13];
 
@@ -78,10 +78,9 @@ export function Poltronas(){
                           <p>Cineart - Cidade<br />Belo Horizonte<br/>São Paulo, 957, Loja GG --<br/>24/25 GGG 1/-Centro</p>
                           <p>_______________________</p>
                           <p>{section}</p>
-                        </div>
-                        
+                        </div>                        
                     }                    
-                  </div>                  
+                  </div> 
                 </div>                          
               </div>                        
             </div>
