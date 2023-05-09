@@ -6,6 +6,18 @@ import styled  from 'styled-components';
 
 import Label from '../components/Label';
 
+interface Item {
+  qtd: number;
+  name: string;
+  valor: number;
+}
+
+const Lista = styled.ul`
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+`
+
 export function Tickets(){
   
   const location = useLocation();
@@ -16,46 +28,46 @@ export function Tickets(){
 
   const [selectedInteira, setSelectedInteira] = useState(0);
   const [selectedMeia, setSelectedMeia] = useState(0);
+  const [items, setItems] = useState<Item[]>([]);
 
-  let valorInteira : Number = 0;
-  let valorMeia  = 0;
+
 
   const handleSelectInteira = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    if(event.target.value== "valor0"){
+    if(event.target.value == "0"){
       setSelectedInteira(0.00);
-      console.log(selectedInteira)
+      setItems([{ qtd: 0, name: 'Inteira', valor: selectedInteira }]);
     }
-    if(event.target.value== "valor1"){
+    else if(event.target.value== "1"){
       setSelectedInteira(30.60*1);
-      console.log(selectedInteira)
+      setItems([...items,{ qtd: 1, name: 'Inteira', valor: selectedInteira }]);
     }
-    else if(event.target.value== "valor2"){
+    else if(event.target.value== "2"){
       setSelectedInteira(30.60*2);
-      console.log(selectedInteira)
+      setItems([{ qtd: 2, name: 'Inteira', valor: selectedInteira }]);
     }
     else{
       setSelectedInteira(30.60*3);
-      console.log(selectedInteira)
+      setItems([{ qtd: 3, name: 'Inteira', valor: selectedInteira }]);
     }
-    console.log(selectedInteira)
+    console.log(items)
   }
   const handleSelectMeia = (event: React.ChangeEvent<HTMLSelectElement>) => {
     
-    if(event.target.value== "valor0"){
+    if(event.target.value== "0"){
       setSelectedMeia(0.00);
-      console.log(selectedMeia)
+      setItems([{ qtd: 0, name: 'Meia', valor: selectedMeia }]);
     }
-    if(event.target.value== "valor1"){
+    else if(event.target.value== "1"){
       setSelectedMeia(16.80*1);
-      console.log(selectedMeia)
+      setItems([{ qtd: 1, name: 'Meia', valor: selectedMeia }]);
     }
-    else if(event.target.value== "valor2"){
+    else if(event.target.value== "2"){
       setSelectedMeia(16.80*2);
-      console.log(selectedMeia)
+      setItems([{ qtd: 2, name: 'Meia', valor: selectedMeia }]);
     }
     else{
       setSelectedMeia(16.80*3);
-      console.log(selectedMeia)
+      setItems([{ qtd: 3, name: 'Meia', valor: selectedMeia }]);
     }
   }
   function handleClick(id: string) : void{
@@ -84,29 +96,32 @@ export function Tickets(){
                           <td>Inteira</td>
                           <td>
                             <select onChange={handleSelectInteira}>
-                              <option value="valor0">0</option>
-                              <option value="valor1">1</option>
-                              <option value="valor2">2</option>
-                              <option value="valor3">3</option>
+                              <option value="0">0</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
                             </select>
                           </td>
-                          <td>{selectedInteira.toFixed(2).toString()}</td>
+                          <td>R${selectedInteira.toFixed(2).toString()}</td>
                       </tr>
                       <tr>
                           <td>Meia</td>
                           <td>
                             <select onChange={handleSelectMeia}>
-                                <option value="valor1">0</option>
-                                <option value="valor1">1</option>
-                                <option value="valor2">2</option>
-                                <option value="valor3">3</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
                             </select>
                           </td>
-                          <td>{selectedMeia.toFixed(2).toString()}</td>
+                          <td>R${selectedMeia.toFixed(2).toString()}</td>
                       </tr>
                   </table>
-                )}
-                </div>                           
+                )}                
+                </div> 
+                <h3>Subtotal: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</h3>      
+                <p>__________________________________________________________________________________________</p> 
+                <h2>Total: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</h2>                   
               </div>     
               <div className={styles.div2}>
                 <div className={styles.filmInfo}>
@@ -121,7 +136,14 @@ export function Tickets(){
                           <p>{section}</p>
                         </div>
                         
-                    }                    
+                    }       
+                    <Lista>
+                      {
+                        items.map((item)=>(
+                          <li>{item.qtd}X</li>
+                        ))
+                      }
+                    </Lista>             
                   </div>                  
                 </div>                          
               </div>             
