@@ -5,44 +5,24 @@ import { Link, useLocation } from 'react-router-dom';
 import styled  from 'styled-components';
 import { Item } from '../interfaces/Items';
 import Label from '../components/Label';
-
+import Button from '../components/input/Button';
 
 
 const Lista = styled.ul` 
   border-bottom: 1px solid white;
   padding-bottom: 5px;
   list-style-type: none;
+  background-color: blue;
+  li{
+    display: flex;
+    justify-content: space-between;
+  }
 `
 const Total = styled.div`
   display: flex;
   justify-content: space-between;
 `
-const Button = styled.button`
 
-cursor: pointer;
-  border: 2px solid #ed8620;
-  padding: 14px;
-  line-height: 15px;
-  margin: 5px;
-  width: 240px;
-  border-radius: 40px;
-  background:#ed8620;
-  color: #fff;
-  text-align: center;
-  width: auto;
-  padding-left: 26px;
-  padding-right: 26px;
-
-  ${props => props.disabled && 'cursor: pointer;'}
-
-  :hover {
-    background-color: ${props => props.theme.primaryHover};
-  }
-
-  :disabled {
-    background-color: gray;
-  }
-`
 export function Tickets(){
   
   const location = useLocation();
@@ -193,12 +173,18 @@ export function Tickets(){
                   <p>_______________________</p>
                   {
                   itemsInteira.map((item) => (
-                    <Lista><li>{item.qtd}X Inteira</li></Lista>    
+                    <Lista><li>
+                        <p>{item.qtd}X Inteira</p>
+                        <p>R${(item.valor).toFixed(2).toString()}</p>
+                    </li></Lista>    
                   ))
                   }        
                   {
                   itemsMeia.map((item) => (
-                    <Lista><li>{item.qtd}X Meia</li></Lista>    
+                    <Lista><li>
+                        <p>{item.qtd}X Meia</p>
+                        <p>R${(item.valor).toFixed(2).toString()}</p>
+                  </li></Lista>        
                   ))
                   }
                   <Total>

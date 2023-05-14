@@ -25,6 +25,7 @@ export function Poltronas(){
   const numRows : number = 14
   const numCols : number = 10
 
+  const [control,setControl] = useState(0);
 
   const seats: number[][] = new Array<number[]>(numRows);
 
@@ -37,19 +38,22 @@ export function Poltronas(){
     display: flex;
     justify-content: space-between;
   `
+  
 
   for (let i = 0; i < numCols; i++) {
     seats[i] = new Array<number>(numRows);
   }
 
   const setSeat = (row: number,col : number, checked: boolean) =>{
-    if(checked){
+    if(checked === true){
       seats[row][col] = 1;
+      setControl(control+1);
     }
     else{
       seats[row][col] = 0;
+      setControl(control-1);
     }
-    console.log(row,col)
+    console.log(control)
   }
 
   return(
@@ -67,7 +71,7 @@ export function Poltronas(){
                         <div className={styles.row}>
                           {/* Cria um array com números de 1 até numCols para representar as colunas */}
                           {colunas.map((col) => (
-                            <PoltronaOption row={row} col={col} setSeat={setSeat}>{col+1}</PoltronaOption>
+                            <PoltronaOption row={row} col={col} setSeat={setSeat} disabled={(control===qtdIngressos)}>{col+1}</PoltronaOption>
                           ))}
                         </div>
                       ))}
