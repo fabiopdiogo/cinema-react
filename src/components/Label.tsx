@@ -13,7 +13,7 @@ const StyledLabel = styled.label`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #29343e;
+  background-color: #ed8620;
   border-radius: 10px;
   width: 600px;  
   cursor: pointer;

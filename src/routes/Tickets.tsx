@@ -1,80 +1,121 @@
 import React, { useState } from 'react';
 import styles from "../styles/Tickets.module.css"
 import Header2 from '../components/Header2';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled  from 'styled-components';
-
+import { Item } from '../interfaces/Items';
 import Label from '../components/Label';
 
-interface Item {
-  qtd: number;
-  name: string;
-  valor: number;
-}
 
-const Lista = styled.ul`
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 10px;
+
+const Lista = styled.ul` 
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+  list-style-type: none;
 `
+const Total = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+const Button = styled.button`
 
+cursor: pointer;
+  border: 2px solid #ed8620;
+  padding: 14px;
+  line-height: 15px;
+  margin: 5px;
+  width: 240px;
+  border-radius: 40px;
+  background:#ed8620;
+  color: #fff;
+  text-align: center;
+  width: auto;
+  padding-left: 26px;
+  padding-right: 26px;
+
+  ${props => props.disabled && 'cursor: pointer;'}
+
+  :hover {
+    background-color: ${props => props.theme.primaryHover};
+  }
+
+  :disabled {
+    background-color: gray;
+  }
+`
 export function Tickets(){
   
   const location = useLocation();
   const state = location.state;
   const film = state.film;
   const section = state.section;
-  const [show1,setShow1] = useState(false)
+  const [show1,setShow1] = useState(false);
 
   const [selectedInteira, setSelectedInteira] = useState(0);
-  const [selectedMeia, setSelectedMeia] = useState(0);
-  const [items, setItems] = useState<Item[]>([]);
-
-
-
-  const handleSelectInteira = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    if(event.target.value == "0"){
-      setSelectedInteira(0.00);
-      setItems([{ qtd: 0, name: 'Inteira', valor: selectedInteira }]);
-    }
-    else if(event.target.value== "1"){
-      setSelectedInteira(30.60*1);
-      setItems([...items,{ qtd: 1, name: 'Inteira', valor: selectedInteira }]);
-    }
-    else if(event.target.value== "2"){
-      setSelectedInteira(30.60*2);
-      setItems([{ qtd: 2, name: 'Inteira', valor: selectedInteira }]);
-    }
-    else{
-      setSelectedInteira(30.60*3);
-      setItems([{ qtd: 3, name: 'Inteira', valor: selectedInteira }]);
-    }
-    console.log(items)
-  }
-  const handleSelectMeia = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    
-    if(event.target.value== "0"){
-      setSelectedMeia(0.00);
-      setItems([{ qtd: 0, name: 'Meia', valor: selectedMeia }]);
-    }
-    else if(event.target.value== "1"){
-      setSelectedMeia(16.80*1);
-      setItems([{ qtd: 1, name: 'Meia', valor: selectedMeia }]);
-    }
-    else if(event.target.value== "2"){
-      setSelectedMeia(16.80*2);
-      setItems([{ qtd: 2, name: 'Meia', valor: selectedMeia }]);
-    }
-    else{
-      setSelectedMeia(16.80*3);
-      setItems([{ qtd: 3, name: 'Meia', valor: selectedMeia }]);
-    }
-  }
+  const [selectedMeia, setSelectedMeia] = useState(0);  
+  const [totalItemsInteira, setTotalItemsInteira] = useState(0);
+  const [totalItemsMeia, setTotalItemsMeia] = useState(0);
+  const [itemsInteira, setItemsInteira] = useState<Item[]>([]);
+  const [itemsMeia, setItemsMeia] = useState<Item[]>([]);
   function handleClick(id: string) : void{
     if(id == "1"){
       setShow1(!show1)
     }
   }
+
+  const handleSelectInteira = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    let aux= 0;
+    if(event.target.value == "0"){
+      setSelectedInteira(0.00);
+      setItemsInteira([]);
+      setTotalItemsInteira(0)
+    }
+    else if(event.target.value== "1"){
+      setSelectedInteira(30.60*1);
+      setItemsInteira([{ qtd: 1, name: 'Inteira', valor: selectedInteira }]); 
+      setTotalItemsInteira(1)   
+    }
+    else if(event.target.value== "2"){
+      setSelectedInteira(30.60*2);
+      setItemsInteira([{ qtd: 2, name: 'Inteira', valor: selectedInteira }]);
+      setTotalItemsInteira(2)
+    }
+    else{
+      setSelectedInteira(30.60*3);
+      setItemsInteira([{ qtd: 3, name: 'Inteira', valor: selectedInteira }]);
+      setTotalItemsInteira(3)
+    }
+
+  }
+  
+  const handleSelectMeia = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    let aux2= 0;
+    if(event.target.value== "0"){
+      setSelectedMeia(0.00);
+      setItemsMeia([]);
+      setTotalItemsMeia(0)
+    }
+    else if(event.target.value== "1"){
+      setSelectedMeia(16.80*1);
+      setItemsMeia([{ qtd: 1, name: 'Meia', valor: selectedMeia }]);
+      aux2= 1; 
+      setTotalItemsMeia(1)
+    }
+    else if(event.target.value== "2"){
+      setSelectedMeia(16.80*2);
+      setItemsMeia([{ qtd: 2, name: 'Meia', valor: selectedMeia }]);
+      aux2= 2; 
+      setTotalItemsMeia(2);
+    }
+    else{
+      setSelectedMeia(16.80*3);
+      setItemsMeia([{ qtd: 3, name: 'Meia', valor: selectedMeia }]);
+      setTotalItemsMeia(3);
+    }  
+  }
+
+
+ 
 
   return(
     <div>
@@ -121,30 +162,50 @@ export function Tickets(){
                 </div> 
                 <h3>Subtotal: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</h3>      
                 <p>__________________________________________________________________________________________</p> 
-                <h2>Total: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</h2>                   
+                <h2>Total: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</h2>          
+                <Link to="/poltronas" 
+                  state={
+                    {film: film, 
+                    section:section, 
+                    qtdIngressos: totalItemsInteira+totalItemsMeia, 
+                    itemsInteira: itemsInteira, 
+                    itemsMeia: itemsMeia,
+                    valorTotal:selectedInteira+selectedMeia
+                    }}>
+                  <Button disabled={  totalItemsInteira+totalItemsMeia == 0 }>Continuar</Button>
+                </Link>
+
               </div>     
               <div className={styles.div2}>
                 <div className={styles.filmInfo}>
                 <img src={film.image} />     
-                  <div className={styles.infos}>
-                    {
-                        <div>
-                          <h2>{film.name}</h2>
-                          <label>{film.age}</label>
-                          <p>Cineart - Cidade<br />Belo Horizonte<br/>São Paulo, 957, Loja GG --<br/>24/25 GGG 1/-Centro</p>
-                          <p>_______________________</p>
-                          <p>{section}</p>
-                        </div>
-                        
-                    }       
-                    <Lista>
-                      {
-                        items.map((item)=>(
-                          <li>{item.qtd}X</li>
-                        ))
-                      }
-                    </Lista>             
-                  </div>                  
+                <div className={styles.infos}>
+                  {
+                      <div>
+                        <h2>{film.name}</h2>
+                        <label>{film.age}</label>
+                        <p>Cineart - Cidade<br />Belo Horizonte<br/>São Paulo, 957, Loja GG --<br/>24/25 GGG 1/-Centro</p>
+                        <p>_______________________</p>
+                        <p>{section}</p>
+                      </div>
+                      
+                  }       
+                  <p>_______________________</p>
+                  {
+                  itemsInteira.map((item) => (
+                    <Lista><li>{item.qtd}X Inteira</li></Lista>    
+                  ))
+                  }        
+                  {
+                  itemsMeia.map((item) => (
+                    <Lista><li>{item.qtd}X Meia</li></Lista>    
+                  ))
+                  }
+                  <Total>
+                    <p>{(totalItemsInteira+totalItemsMeia)} item(s)</p>
+                    <p>Total: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</p>
+                  </Total>                  
+                </div>                  
                 </div>                          
               </div>             
             </div>      

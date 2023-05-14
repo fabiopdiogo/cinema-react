@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import { IFilms } from "../interfaces/Films"
-
+import { Item } from '../interfaces/Items';
+import styled from 'styled-components';
 import styles from "../styles/Poltronas.module.css"
 import Header2 from '../components/Header2';
 import PoltronaOption from '../components/PoltronaOption';
 
 import { useLocation } from 'react-router-dom';
-
-
-interface Props {
-  infos: IFilms[];
-}
 
 
 export function Poltronas(){
@@ -19,6 +15,10 @@ export function Poltronas(){
   console.log(state.film);
   const film = state.film;
   const section = state.section;
+  const itemsInteira : Item[] = state.itemsInteira;
+  const itemsMeia : Item[] = state.itemsMeia;
+  const qtdIngressos = state.qtdIngressos;
+  const valorTotal = state.valorTotal;
   const linhas = [0,1,2,3,4,5,6,7,8,9];
   const colunas = [0,1,2,3,4,5,6,7,8,9,10,11,12,13];
 
@@ -27,6 +27,16 @@ export function Poltronas(){
 
 
   const seats: number[][] = new Array<number[]>(numRows);
+
+  const Lista = styled.ul` 
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+  list-style-type: none;
+`
+  const Total = styled.div`
+    display: flex;
+    justify-content: space-between;
+  `
 
   for (let i = 0; i < numCols; i++) {
     seats[i] = new Array<number>(numRows);
@@ -48,7 +58,7 @@ export function Poltronas(){
         <body className={styles.body}>
           <div className={styles.container}>
             <div className={styles.div1}>
-              <h1>Escola xx poltrona(s)</h1>
+              <h1>Escolha {qtdIngressos} poltrona(s)</h1>
               <p>Selecione seu(s) lugar(es) clicando na poltrona de acordo a legenda.</p>
               <p>Para desmarcar seu(s) lugar(es) clique novamente sobre a poltrona(s) reservada(s).</p>            
                 <div className={styles.sala}>   
@@ -78,6 +88,21 @@ export function Poltronas(){
                           <p>Cineart - Cidade<br />Belo Horizonte<br/>São Paulo, 957, Loja GG --<br/>24/25 GGG 1/-Centro</p>
                           <p>_______________________</p>
                           <p>{section}</p>
+                          <p>_______________________</p>
+                          {
+                            itemsInteira.map((item) => (
+                              <Lista><li>{(item.qtd)}X Inteira</li></Lista>    
+                            ))
+                            }        
+                            {
+                            itemsMeia.map((item) => (
+                              <Lista><li>{(item.qtd)}X Meia</li></Lista>    
+                            ))
+                            }
+                            <Total>
+                              <p>{qtdIngressos} item(s)</p>
+                              <p>Total: R${(valorTotal).toFixed(2).toString()}</p>
+                            </Total>  
                         </div>                        
                     }                    
                   </div> 

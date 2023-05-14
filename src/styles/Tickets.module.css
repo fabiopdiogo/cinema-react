@@ -17,6 +17,18 @@
   height: 100vh;
 }
 
+.filmInfo{
+  display: flex;  
+  flex-direction: row;
+  padding: 15px 15px;
+  gap:10px
+}
+
+.filmInfo img{
+  height: fit-content;
+  width: 140px;
+}
+
 .div1{
   width: 55%;  
   background-color: #3f4152;  
@@ -27,6 +39,8 @@
 .div2{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width:35%;
   height: 70vh;  
   background-color: #3f4152;  
@@ -59,17 +73,20 @@
   text-align: center;
 }
 
-#toogle{
-  display: none;
-  flex-direction: column;
-  align-items: center;
-}
+.confirmar{
 
-#toogle:checked + table{
+  cursor: pointer;
+  border: 2px solid #ed8620;
+  padding: 14px;
+  line-height: 15px;
+  margin: 5px;
+  width: 240px;
+  border-radius: 40px;
+  background:#ed8620;
+  color: #fff;
+  text-align: center;
+  width: auto;
+  padding-left: 26px;
+  padding-right: 26px;
   
-  width: 600px;
-  border-radius: 5px;
-  padding: 0 20px;
-  align-items: center;  
 }
-
