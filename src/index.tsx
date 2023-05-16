@@ -9,9 +9,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Poltronas } from "./routes/Poltronas";
 import { Tickets } from "./routes/Tickets";
 
-useEffect(() => {
-  document.title = 'Cinema React';
-}, []);
 
 const router = createBrowserRouter([
   {
