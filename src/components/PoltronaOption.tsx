@@ -14,8 +14,8 @@ interface Props{
   row:number;
   setSeat(row:number,col:number,checkedValue: boolean) : void;  
   disabled: boolean;
+  id: string;
 }
-
 
 const StyledButton = styled.button<ButtonProps>`
     border: 2px solid black;
@@ -37,14 +37,13 @@ const StyledButton = styled.button<ButtonProps>`
 
     :disabled {
       background-color: ${props => props.theme.disabled};
-    }
-    
+    }    
 `
 
-const PoltronaOption = ({children,setSeat,col,row,disabled}: Props) => {
+const PoltronaOption = ({children,setSeat,col,row,disabled,id}: Props) => {
   const [checkedValue, setCheckedValue] = useState(true);
-  const [control, setControl] = useState(true);
-
+  const [idPoltrona, setIdPoltrona] = useState(id);
+  console.log(id);
   if(checkedValue===false){
     disabled=false;
   }

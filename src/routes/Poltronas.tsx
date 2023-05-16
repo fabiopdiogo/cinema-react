@@ -20,6 +20,7 @@ export function Poltronas(){
   const qtdIngressos = state.qtdIngressos;
   const valorTotal = state.valorTotal;
   const linhas = [0,1,2,3,4,5,6,7,8,9];
+  const linhasOrdem = ['A','B','C','D','E','F','G','H','I','J'];
   const colunas = [0,1,2,3,4,5,6,7,8,9,10,11,12,13];
 
   const numRows : number = 14
@@ -38,7 +39,18 @@ export function Poltronas(){
     display: flex;
     justify-content: space-between;
   `
-  
+    const Linha = styled.p`  
+    padding: 0;
+    margin: 0;
+  `
+  const Fileira = styled.div`
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    gap:10px;
+  `
 
   for (let i = 0; i < numCols; i++) {
     seats[i] = new Array<number>(numRows);
@@ -65,18 +77,25 @@ export function Poltronas(){
               <h1>Escolha {qtdIngressos} poltrona(s)</h1>
               <p>Selecione seu(s) lugar(es) clicando na poltrona de acordo a legenda.</p>
               <p>Para desmarcar seu(s) lugar(es) clique novamente sobre a poltrona(s) reservada(s).</p>            
-                <div className={styles.sala}>   
-                    <div className={styles.assentos}>
-                      {linhas.map((row) => (
-                        <div className={styles.row}>
-                          {/* Cria um array com números de 1 até numCols para representar as colunas */}
-                          {colunas.map((col) => (
-                            <PoltronaOption row={row} col={col} setSeat={setSeat} disabled={(control===qtdIngressos)}>{col+1}</PoltronaOption>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  
+                <div className={styles.sala}>  
+                      <div className={styles.containerAssentos}>
+                          <Fileira>
+                              {linhasOrdem.map((linha) => (
+                                  <Linha>{linha}</Linha>
+                                ))
+                              }     
+                          </Fileira>                 
+                          <div className={styles.assentos}>                         
+                            {linhas.map((row) => (
+                              <div className={styles.row}>
+                                {/* Cria um array com números de 1 até numCols para representar as colunas */}
+                                {colunas.map((col) => (
+                                  <PoltronaOption row={row} col={col} setSeat={setSeat} disabled={(control===qtdIngressos)} id={linhasOrdem[row]+(col+1).toString()}>{col+1}</PoltronaOption>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                      </div>
                   <span>Tela</span>
                 </div>                           
               </div> 

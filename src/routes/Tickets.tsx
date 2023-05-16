@@ -12,7 +12,6 @@ const Lista = styled.ul`
   border-bottom: 1px solid white;
   padding-bottom: 5px;
   list-style-type: none;
-  background-color: blue;
   li{
     display: flex;
     justify-content: space-between;

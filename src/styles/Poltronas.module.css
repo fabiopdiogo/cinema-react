@@ -80,11 +80,11 @@
   padding: 10px 200px;
   color: black;
 }
-.corredor {
-  width: 20px;
-  height: 100%;
-  background-color: black;
+.containerAssentos {
+  display: flex;  
+  background-color: #ed8620;
 }
+
 .assentos{
   display: flex;
   flex-direction: column;
