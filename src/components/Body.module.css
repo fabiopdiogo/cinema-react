@@ -39,12 +39,11 @@
 .filmeContainer{
   display:flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-items:baseline;
+  justify-content:center;
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 30px;
-
   width: 1200px;
 }
 

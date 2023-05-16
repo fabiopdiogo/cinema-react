@@ -174,7 +174,7 @@ export function Tickets(){
                   itemsInteira.map((item) => (
                     <Lista><li>
                         <p>{item.qtd}X Inteira</p>
-                        <p>R${(item.valor).toFixed(2).toString()}</p>
+                        <p>R${selectedInteira.toFixed(2).toString()}</p>
                     </li></Lista>    
                   ))
                   }        
@@ -182,7 +182,7 @@ export function Tickets(){
                   itemsMeia.map((item) => (
                     <Lista><li>
                         <p>{item.qtd}X Meia</p>
-                        <p>R${(item.valor).toFixed(2).toString()}</p>
+                        <p>R${selectedMeia.toFixed(2).toString()}</p>
                   </li></Lista>        
                   ))
                   }
