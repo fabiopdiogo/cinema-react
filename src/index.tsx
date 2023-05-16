@@ -2,11 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './App';
+import { useEffect } from 'react';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Poltronas } from "./routes/Poltronas";
-import { Tickets } from "./routes/Tickets"
+import { Tickets } from "./routes/Tickets";
+
+useEffect(() => {
+  document.title = 'Cinema React';
+}, []);
 
 const router = createBrowserRouter([
   {
