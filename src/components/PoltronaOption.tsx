@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 
 import styled from 'styled-components';
 
@@ -43,14 +43,13 @@ const StyledButton = styled.button<ButtonProps>`
 const PoltronaOption = ({children,setSeat,col,row,disabled,id}: Props) => {
   const [checkedValue, setCheckedValue] = useState(true);
   const [idPoltrona, setIdPoltrona] = useState(id);
-  console.log(id);
   if(checkedValue===false){
     disabled=false;
   }
-  
+
   function handleClick () {
+    console.log(disabled);
     setCheckedValue(!checkedValue);
-    console.log(checkedValue)
     setSeat(row,col,checkedValue);
   }
 

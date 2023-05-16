@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { IFilms } from "../interfaces/Films"
 import { Item } from '../interfaces/Items';
 import styled from 'styled-components';
 import styles from "../styles/Poltronas.module.css"
@@ -8,11 +7,9 @@ import PoltronaOption from '../components/PoltronaOption';
 
 import { useLocation } from 'react-router-dom';
 
-
 export function Poltronas(){
   const location = useLocation();
   const state = location.state;
-  console.log(state.film);
   const film = state.film;
   const section = state.section;
   const itemsInteira : Item[] = state.itemsInteira;
@@ -23,8 +20,8 @@ export function Poltronas(){
   const linhasOrdem = ['A','B','C','D','E','F','G','H','I','J'];
   const colunas = [0,1,2,3,4,5,6,7,8,9,10,11,12,13];
 
-  const numRows : number = 14
-  const numCols : number = 10
+  const numRows : number = 14;
+  const numCols : number = 10;
 
   const [control,setControl] = useState(0);
 
