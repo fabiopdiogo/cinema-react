@@ -1,7 +1,6 @@
 import React, {MouseEventHandler, useState} from 'react';
 
 import styles  from "./Date.module.css"
-import { IFilms }   from "../interfaces/Films"
 
 interface Props {
   dia: string;

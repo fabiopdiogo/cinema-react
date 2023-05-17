@@ -9,7 +9,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Poltronas } from "./routes/Poltronas";
 import { Tickets } from "./routes/Tickets";
 
-
 const router = createBrowserRouter([
   {
     path: "/",

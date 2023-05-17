@@ -1,7 +1,7 @@
 import React ,{useState} from 'react'; 
 import { IFilms } from "../interfaces/Films"
 import { Link } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+import styled from 'styled-components';
 
 
 import styles  from "./Body.module.css"
@@ -12,6 +12,11 @@ interface Props {
   Schedule1: IFilms[];
   Schedule2: IFilms[];
 }
+
+const Subtitle = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
 
 
 const Body = ({Schedule1,Schedule2} : Props) => { 
@@ -33,7 +38,7 @@ const Body = ({Schedule1,Schedule2} : Props) => {
   return (
     <div className={styles.cinema}>
         <h1>Cinema</h1>
-        <p>Bora de cineminha hoje? No Shopping você, reúne amigos, família e quem você quiser e encontra tudo para a diversão ser completa. Escolha o dia para ver a programação:</p>    
+        <Subtitle>Bora de cineminha hoje? No Shopping você, reúne amigos, família e quem você quiser e encontra tudo para a diversão ser completa. Escolha o dia para ver a programação:</Subtitle>    
 
         <img src="icone-cinema.svg" alt="" />            
         <button className={styles.cinemaButton}>VALORES</button>

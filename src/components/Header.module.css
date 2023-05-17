@@ -4,7 +4,10 @@
   background-color: #ED8620;  
   justify-content: space-around;
   color: white;
+  width: 100vw;
 }
+
+
 .div1{
   display:flex;
   gap:25px;  
@@ -16,12 +19,23 @@
   align-items: center;
   gap:25px;
 }
+@media(max-width:880px){
+  .options{
+    display: none;
+  }
+}
 
 .searchBar{
    display: flex;
    flex-direction: row;   
    align-items: center;
  }
+
+ @media(max-width:880px){
+  .searchBar{
+    display: none;
+  }
+}
 
 .searchBar input{  
     padding: 8px;
@@ -37,4 +51,16 @@ img{
   height: 25px;
   padding: 0;
   cursor: pointer;
+}
+
+@media (max-width:1350px){
+  .header{
+    display: flex;
+    flex-direction: row;
+    background-color: #ED8620;  
+    justify-content: space-around;
+    color: white;
+    width: 100%;
+  }
+  
 }

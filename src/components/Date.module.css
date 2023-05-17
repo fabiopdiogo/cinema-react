@@ -15,3 +15,18 @@
   padding-right: 26px;
   
 }
+
+@media (max-width:700px){
+  .dateButton{
+    cursor: pointer;
+    border: 2px solid #ed8620;
+    padding: 14px;
+    line-height: 15px;
+    margin: 5px;
+    border-radius: 40px;
+    background:#ed8620;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+  }   
+}
