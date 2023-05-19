@@ -36,6 +36,7 @@ export function Tickets(){
   const [totalItemsMeia, setTotalItemsMeia] = useState(0);
   const [itemsInteira, setItemsInteira] = useState<Item[]>([]);
   const [itemsMeia, setItemsMeia] = useState<Item[]>([]);
+
   function handleClick(id: string) : void{
     if(id == "1"){
       setShow1(!show1)
@@ -97,104 +98,102 @@ export function Tickets(){
  
 
   return(
-    <div>
-        <Header2 />
-          <body className={styles.body}>
-            <div className={styles.container}>
-              <div className={styles.div1}>
-                <h1>Escola seus ingressos</h1>          
-                  <div className={styles.options}>
-                  <Label id="1" handleClick={handleClick}>Ingressos Tradicionais</Label>   
-                  {show1 && (
-                  <table>
-                      <tr>
-                          <td>Ingressos</td>
-                          <td>Quantidade</td>
-                          <td>Subtotal</td>
-                      </tr>
-                      <tr>
-                          <td>Inteira</td>
-                          <td>
-                            <select onChange={handleSelectInteira}>
+    <body className={styles.body}>
+          <Header2 />         
+          <div className={styles.container}>
+            <div className={styles.div1}>
+              <h1>Escola seus ingressos</h1>          
+                <div className={styles.options}>
+                <Label id="1" handleClick={handleClick}>Ingressos Tradicionais</Label>   
+                {show1 && (
+                <table>
+                    <tr>
+                        <td>Ingressos</td>
+                        <td>Quantidade</td>
+                        <td>Subtotal</td>
+                    </tr>
+                    <tr>
+                        <td>Inteira</td>
+                        <td>
+                          <select onChange={handleSelectInteira}>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                          </select>
+                        </td>
+                        <td>R${selectedInteira.toFixed(2).toString()}</td>
+                    </tr>
+                    <tr>
+                        <td>Meia</td>
+                        <td>
+                          <select onChange={handleSelectMeia}>
                               <option value="0">0</option>
                               <option value="1">1</option>
                               <option value="2">2</option>
                               <option value="3">3</option>
-                            </select>
-                          </td>
-                          <td>R${selectedInteira.toFixed(2).toString()}</td>
-                      </tr>
-                      <tr>
-                          <td>Meia</td>
-                          <td>
-                            <select onChange={handleSelectMeia}>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                          </td>
-                          <td>R${selectedMeia.toFixed(2).toString()}</td>
-                      </tr>
-                  </table>
-                )}                
-                </div> 
-                <h3>Subtotal: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</h3>      
-                <p>__________________________________________________________________________________________</p> 
-                <h2>Total: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</h2>          
-                <Link to="/poltronas" 
-                  state={
-                    {film: film, 
-                    section:section, 
-                    qtdIngressos: totalItemsInteira+totalItemsMeia, 
-                    itemsInteira: itemsInteira, 
-                    itemsMeia: itemsMeia,
-                    valorTotal:selectedInteira+selectedMeia
-                    }}>
-                  <Button disabled={  totalItemsInteira+totalItemsMeia == 0 }>Continuar</Button>
-                </Link>
+                          </select>
+                        </td>
+                        <td>R${selectedMeia.toFixed(2).toString()}</td>
+                    </tr>
+                </table>
+              )}                
+              </div> 
+              <h3>Subtotal: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</h3>      
+              <p>____________________________________________</p> 
+              <h2>Total: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</h2>          
+              <Link to="/poltronas" 
+                state={
+                  {film: film, 
+                  section:section, 
+                  qtdIngressos: totalItemsInteira+totalItemsMeia, 
+                  itemsInteira: itemsInteira, 
+                  itemsMeia: itemsMeia,
+                  valorTotal:selectedInteira+selectedMeia
+                  }}>
+                <Button disabled={  totalItemsInteira+totalItemsMeia == 0 }>Continuar</Button>
+              </Link>
 
-              </div>     
-              <div className={styles.div2}>
-                <div className={styles.filmInfo}>
-                <img src={film.image} />     
-                <div className={styles.infos}>
-                  {
-                      <div>
-                        <h2>{film.name}</h2>
-                        <label>{film.age}</label>
-                        <p>Cineart - Cidade<br />Belo Horizonte<br/>São Paulo, 957, Loja GG --<br/>24/25 GGG 1/-Centro</p>
-                        <p>_______________________</p>
-                        <p>{section}</p>
-                      </div>
-                      
-                  }       
-                  <p>_______________________</p>
-                  {
-                  itemsInteira.map((item) => (
-                    <Lista><li>
-                        <p>{item.qtd}X Inteira</p>
-                        <p>R${selectedInteira.toFixed(2).toString()}</p>
-                    </li></Lista>    
-                  ))
-                  }        
-                  {
-                  itemsMeia.map((item) => (
-                    <Lista><li>
-                        <p>{item.qtd}X Meia</p>
-                        <p>R${selectedMeia.toFixed(2).toString()}</p>
-                  </li></Lista>        
-                  ))
-                  }
-                  <Total>
-                    <p>{(totalItemsInteira+totalItemsMeia)} item(s)</p>
-                    <p>Total: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</p>
-                  </Total>                  
-                </div>                  
-                </div>                          
-              </div>             
-            </div>      
-        </body>
-    </div>
+            </div>     
+            <div className={styles.div2}>
+              <div className={styles.filmInfo}>
+              <img src={film.image} />     
+              <div className={styles.infos}>
+                {
+                    <div>
+                      <h2>{film.name}</h2>
+                      <label>{film.age}</label>
+                      <p>Cineart - Cidade<br />Belo Horizonte<br/>São Paulo, 957, Loja GG --<br/>24/25 GGG 1/-Centro</p>
+                      <p>_______________________</p>
+                      <p>{section}</p>
+                    </div>
+                    
+                }       
+                <p>_______________________</p>
+                {
+                itemsInteira.map((item) => (
+                  <Lista><li>
+                      <p>{item.qtd}X Inteira</p>
+                      <p>R${selectedInteira.toFixed(2).toString()}</p>
+                  </li></Lista>    
+                ))
+                }        
+                {
+                itemsMeia.map((item) => (
+                  <Lista><li>
+                      <p>{item.qtd}X Meia</p>
+                      <p>R${selectedMeia.toFixed(2).toString()}</p>
+                </li></Lista>        
+                ))
+                }
+                <Total>
+                  <p>{(totalItemsInteira+totalItemsMeia)} item(s)</p>
+                  <p>Total: R${(selectedInteira+selectedMeia).toFixed(2).toString()}</p>
+                </Total>                  
+              </div>                  
+              </div>                          
+            </div>             
+          </div>    
+    </body>
   )
 }

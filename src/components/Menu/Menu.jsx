@@ -70,9 +70,7 @@ const A = styled.a`
   }
 `
 
-const Nav= styled.nav`
 
-`
 
 function Menu({menuIsVisible,setMenuIsVisible} ){
   return(

@@ -3,7 +3,6 @@ import { IFilms } from "../interfaces/Films"
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-
 import styles  from "./Body.module.css"
 
 import Date from "./Date"

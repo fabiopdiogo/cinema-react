@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Header from '../src/components/Header';
 import Body from '../src/components/Body'
 
-import styles from './App.module.css'
+import styles from './styles/App.module.css'
 
 import Schedule1 from '../src/films/Schedule1';
 import Schedule2 from '../src/films/Schedule2';
