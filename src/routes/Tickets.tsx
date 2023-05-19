@@ -102,7 +102,7 @@ export function Tickets(){
           <Header2 />         
           <div className={styles.container}>
             <div className={styles.div1}>
-              <h1>Escola seus ingressos</h1>          
+              <h1>Escolha seus ingressos</h1>          
                 <div className={styles.options}>
                 <Label id="1" handleClick={handleClick}>Ingressos Tradicionais</Label>   
                 {show1 && (
